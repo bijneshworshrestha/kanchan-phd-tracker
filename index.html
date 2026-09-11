@@ -1099,7 +1099,7 @@ const FIREBASE_CONFIG = {
 };
 
 // ── DB INIT (Firebase v8 compat) ──
-const ALLOWED_EMAIL = 'kanxangtm58@gmail.com';
+const ALLOWED_EMAILS = ['kanxangtm58@gmail.com', 'bijneshwor@gmail.com'];
 
 async function initDB() {
   setSyncStatus('loading');
@@ -1111,7 +1111,7 @@ async function initDB() {
 
     // Watch auth state
     auth.onAuthStateChanged(async (user) => {
-      if (user && user.email === ALLOWED_EMAIL) {
+      if (user && ALLOWED_EMAILS.includes(user.email)) {
         // Authorised — show app, hide overlay
         document.getElementById('signin-overlay').classList.add('hidden');
         document.getElementById('signout-btn').style.display = 'flex';
@@ -1124,7 +1124,7 @@ async function initDB() {
           console.log('First run — seeding database…');
           seedDatabase(db).catch(console.error);
         }
-      } else if (user && user.email !== ALLOWED_EMAIL) {
+      } else if (user && !ALLOWED_EMAILS.includes(user.email)) {
         // Wrong account — sign them out
         await auth.signOut();
         alert('Access is restricted to an authorised account. Please use the correct Google account.');
@@ -1144,7 +1144,7 @@ async function initDB() {
 
 function signInWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
-  provider.setCustomParameters({ login_hint: ALLOWED_EMAIL });
+  provider.setCustomParameters({ login_hint: ALLOWED_EMAILS[0] });
   firebase.auth().signInWithPopup(provider).catch(err => {
     console.error('Sign-in failed:', err.message);
     toast('Sign-in failed: ' + err.message, 'error');
