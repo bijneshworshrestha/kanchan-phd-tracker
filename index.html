@@ -23,6 +23,8 @@
   --warn-light: #fef3cd;
   --info: #1565c0;
   --info-light: #e3f2fd;
+  --new: #6b3fa0;
+  --new-light: #ede7f6;
   --muted: #6b6860;
   --muted-light: #f0eeea;
   --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.04);
@@ -47,6 +49,8 @@
     --warn-light: #3d2c08;
     --info: #5b9bd5;
     --info-light: #0d2440;
+    --new: #a78bd4;
+    --new-light: #2d1f4a;
     --muted: #90877a;
     --muted-light: #252320;
     --shadow: 0 1px 3px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.2);
@@ -68,6 +72,8 @@
   --warn-light: #3d2c08;
   --info: #5b9bd5;
   --info-light: #0d2440;
+  --new: #a78bd4;
+  --new-light: #2d1f4a;
   --muted: #90877a;
   --muted-light: #252320;
   --shadow: 0 1px 3px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.2);
@@ -88,15 +94,15 @@ a:hover{text-decoration:underline}
 .stat{display:flex;align-items:center;gap:4px;font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:20px;border:1px solid var(--border)}
 .stat.s-urgent{background:var(--urgent-light);color:var(--urgent);border-color:var(--urgent)}
 .stat.s-pos{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.stat.s-new{background:var(--new-light);color:var(--new);border-color:var(--new)}
 .stat.s-scholar{background:var(--info-light);color:var(--info);border-color:var(--info)}
-.stat.s-conf{background:var(--warn-light);color:var(--warn);border-color:var(--warn)}
 .header-meta{font-size:.75rem;color:var(--text-3)}
 .theme-btn{background:none;border:1px solid var(--border);color:var(--text-2);padding:5px 10px;border-radius:8px;cursor:pointer;font-size:.75rem;font-family:var(--font-sans)}
 .theme-btn:hover{background:var(--surface-2)}
 
 /* FILTER BAR */
 .filter-bar{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:65px;z-index:99;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.filter-inner{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;gap:4px;white-space:nowrap;padding-top:8px;padding-bottom:8px}
+.filter-inner{max-width:1180px;margin:0 auto;padding:8px 20px;display:flex;gap:4px;white-space:nowrap}
 .tab{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:8px;border:1px solid transparent;font-size:.8rem;font-weight:500;cursor:pointer;background:none;color:var(--text-2);font-family:var(--font-sans);transition:all .15s}
 .tab:hover{background:var(--surface-2);color:var(--text)}
 .tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
@@ -118,7 +124,7 @@ a:hover{text-decoration:underline}
 .card.urgent::before{background:var(--urgent)}
 .card.next2wk::before{background:var(--warn)}
 .card.october::before{background:var(--accent)}
-.card.later::before{background:var(--info)}
+.card.newentry::before{background:var(--new)}
 .card.scholarship::before{background:var(--info)}
 .card.conference::before{background:var(--warn)}
 .card.excluded::before{background:var(--muted)}
@@ -132,9 +138,10 @@ a:hover{text-decoration:underline}
 .flag.f-accent{background:var(--accent-light);color:var(--accent)}
 .flag.f-muted{background:var(--muted-light);color:var(--muted)}
 .flag.f-top{background:#ffe0b2;color:#b45309}
+.flag.f-new{background:var(--new-light);color:var(--new)}
 
 .fit-ring{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;border:2px solid}
-.fit-85,.fit-80{border-color:var(--accent);background:var(--accent-light);color:var(--accent)}
+.fit-90,.fit-85,.fit-80{border-color:var(--accent);background:var(--accent-light);color:var(--accent)}
 .fit-70{border-color:var(--warn);background:var(--warn-light);color:var(--warn)}
 .fit-60,.fit-55,.fit-50,.fit-45{border-color:var(--border);background:var(--surface-2);color:var(--text-2)}
 
@@ -144,13 +151,18 @@ a:hover{text-decoration:underline}
 .card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
 .tag{font-size:.7rem;padding:2px 8px;border-radius:4px;background:var(--surface-2);color:var(--text-3);border:1px solid var(--border)}
 .card-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px solid var(--border)}
-.deadline{font-size:.78rem;font-weight:600;color:var(--urgent)}
-.deadline.soon{color:var(--warn)}
-.deadline.ok{color:var(--accent)}
+.deadline{font-size:.78rem;font-weight:600}
+.dl-urgent{color:var(--urgent)}
+.dl-warn{color:var(--warn)}
+.dl-ok{color:var(--accent)}
+.dl-tbc{color:var(--new)}
 .card-link{font-size:.78rem;font-weight:600;color:var(--accent);padding:4px 10px;border:1px solid var(--accent);border-radius:6px}
 .card-link:hover{background:var(--accent);color:#fff;text-decoration:none}
 .note{font-size:.77rem;color:var(--text-3);font-style:italic;margin-top:6px}
 .hidden{display:none!important}
+
+/* NEW BANNER */
+.new-banner{display:inline-flex;align-items:center;gap:6px;background:var(--new-light);color:var(--new);font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:6px 14px;border-radius:8px;border:1px solid var(--new);margin-bottom:16px}
 
 /* EXCLUDED */
 .excl-grid{display:grid;gap:8px}
@@ -170,13 +182,13 @@ a:hover{text-decoration:underline}
       <span class="brand-badge">Daily Scan</span>
     </div>
     <div class="stats">
-      <span class="stat s-urgent">🔴 2 Urgent</span>
-      <span class="stat s-pos">🎓 9 Positions</span>
+      <span class="stat s-urgent">🔴 1 Urgent</span>
+      <span class="stat s-pos">🎓 11 Positions</span>
+      <span class="stat s-new">✨ 3 New</span>
       <span class="stat s-scholar">💰 2 Scholarships</span>
-      <span class="stat s-conf">📅 2 Conferences</span>
     </div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span class="header-meta">Scanned 2026-09-15</span>
+      <span class="header-meta">Scanned 2026-09-17</span>
       <button class="theme-btn" onclick="toggleTheme()">🌙 Theme</button>
     </div>
   </div>
@@ -184,15 +196,17 @@ a:hover{text-decoration:underline}
 
 <nav class="filter-bar" aria-label="Filter positions">
   <div class="filter-inner">
-    <button class="tab active" data-filter="all" onclick="filterCards(this)">All <span class="count">(13)</span></button>
-    <button class="tab" data-filter="urgent" onclick="filterCards(this)">🔴 Urgent <span class="count">(2)</span></button>
+    <button class="tab active" data-filter="all" onclick="filterCards(this)">All <span class="count">(15)</span></button>
+    <button class="tab" data-filter="urgent" onclick="filterCards(this)">🔴 Urgent <span class="count">(1)</span></button>
     <button class="tab" data-filter="next2wk" onclick="filterCards(this)">⏳ Next 2 wks <span class="count">(3)</span></button>
     <button class="tab" data-filter="october" onclick="filterCards(this)">📆 October <span class="count">(4)</span></button>
+    <button class="tab" data-filter="newentry" onclick="filterCards(this)">✨ New Today <span class="count">(3)</span></button>
     <button class="tab" data-filter="scholarship" onclick="filterCards(this)">💰 Scholarships <span class="count">(2)</span></button>
     <button class="tab" data-filter="conference" onclick="filterCards(this)">📅 Conferences <span class="count">(2)</span></button>
-    <button class="tab" data-filter="nl" onclick="filterCards(this)">🇳🇱 Netherlands <span class="count">(3)</span></button>
-    <button class="tab" data-filter="uk" onclick="filterCards(this)">🇬🇧 UK <span class="count">(3)</span></button>
-    <button class="tab" data-filter="highfit" onclick="filterCards(this)">⭐ ≥70% fit <span class="count">(4)</span></button>
+    <button class="tab" data-filter="nl" onclick="filterCards(this)">🇳🇱 Netherlands <span class="count">(4)</span></button>
+    <button class="tab" data-filter="be" onclick="filterCards(this)">🇧🇪 Belgium <span class="count">(5)</span></button>
+    <button class="tab" data-filter="uk" onclick="filterCards(this)">🇬🇧 UK <span class="count">(2)</span></button>
+    <button class="tab" data-filter="highfit" onclick="filterCards(this)">⭐ ≥80% fit <span class="count">(5)</span></button>
   </div>
 </nav>
 
@@ -203,42 +217,15 @@ a:hover{text-decoration:underline}
     <div class="section-head">
       <h2 class="section-label">🔴 Urgent — Deadline within 5 days</h2>
       <div class="section-sep"></div>
-      <span class="section-count">2 positions</span>
+      <span class="section-count">1 position</span>
     </div>
     <div class="grid">
 
-      <!-- Card 1: UMC Utrecht -->
-      <article class="card urgent" data-groups="urgent nl highfit">
-        <div class="card-top">
-          <div class="card-flags">
-            <span class="flag f-urgent">Urgent</span>
-            <span class="flag f-accent">🇳🇱 Netherlands</span>
-            <span class="flag f-accent">Salaried</span>
-          </div>
-          <div class="fit-ring fit-80">80%</div>
-        </div>
-        <h3 class="card-title">Psychotherapy for Military Mental Health</h3>
-        <div class="card-uni">UMC Utrecht / Utrecht University</div>
-        <p class="card-body">Fully-salaried 4-year PhD (NWO-funded) developing and testing psychological interventions for trauma, moral injury and occupational stress in military/veteran populations. Clinical psychology research with strong psychotherapy component.</p>
-        <div class="card-tags">
-          <span class="tag">Psychotherapy</span>
-          <span class="tag">Trauma/PTSD</span>
-          <span class="tag">RCT</span>
-          <span class="tag">Qualitative</span>
-          <span class="tag">NWO</span>
-        </div>
-        <div class="card-footer">
-          <span class="deadline">⚠ Sep 17, 2026</span>
-          <a class="card-link" href="https://www.academictransfer.com/en/jobs/?q=clinical+psychology+phd+utrecht" target="_blank" rel="noopener">Apply →</a>
-        </div>
-        <p class="note">Strong fit: aligns with clinical research methods background. Salaried Dutch position (€2,770–€3,539/mo).</p>
-      </article>
-
-      <!-- Card 2: Sussex x Utrecht -->
+      <!-- Sussex × Utrecht -->
       <article class="card urgent" data-groups="urgent uk nl">
         <div class="card-top">
           <div class="card-flags">
-            <span class="flag f-urgent">Urgent</span>
+            <span class="flag f-urgent">⚠ Urgent</span>
             <span class="flag f-info">🇬🇧 UK / 🇳🇱 NL</span>
             <span class="flag f-accent">Stipend</span>
           </div>
@@ -254,10 +241,10 @@ a:hover{text-decoration:underline}
           <span class="tag">UKRI</span>
         </div>
         <div class="card-footer">
-          <span class="deadline">⚠ Sep 22, 2026</span>
+          <span class="deadline dl-urgent">⚠ Sep 22, 2026 — 5 days</span>
           <a class="card-link" href="https://www.findaphd.com/phds/project/health-psychology-epidemic-models/" target="_blank" rel="noopener">Apply →</a>
         </div>
-        <p class="note">Moderate fit — quantitative modelling is a stretch but health psychology core is well aligned.</p>
+        <p class="note">Moderate fit — health psychology core well aligned; quantitative modelling is a stretch. Apply this weekend.</p>
       </article>
 
     </div>
@@ -272,7 +259,7 @@ a:hover{text-decoration:underline}
     </div>
     <div class="grid">
 
-      <!-- Card 3: Utrecht Freeze-Fight-Flight -->
+      <!-- Utrecht Freeze-Fight-Flight -->
       <article class="card next2wk" data-groups="next2wk nl highfit">
         <div class="card-top">
           <div class="card-flags">
@@ -292,13 +279,13 @@ a:hover{text-decoration:underline}
           <span class="tag">NWO</span>
         </div>
         <div class="card-footer">
-          <span class="deadline soon">⏳ Sep 27, 2026</span>
+          <span class="deadline dl-warn">⏳ Sep 27, 2026</span>
           <a class="card-link" href="https://www.uu.nl/en/organisation/working-at-utrecht-university/jobs" target="_blank" rel="noopener">Apply →</a>
         </div>
-        <p class="note">High fit: directly in clinical psychology, experimental methods match profile.</p>
+        <p class="note">High fit: directly in clinical psychology, experimental methods match profile. Salaried NL position.</p>
       </article>
 
-      <!-- Card 4: Radboud Gambling -->
+      <!-- Radboud Gambling -->
       <article class="card next2wk" data-groups="next2wk nl">
         <div class="card-top">
           <div class="card-flags">
@@ -318,14 +305,14 @@ a:hover{text-decoration:underline}
           <span class="tag">ZonMw</span>
         </div>
         <div class="card-footer">
-          <span class="deadline soon">⏳ Sep 30, 2026</span>
+          <span class="deadline dl-warn">⏳ Sep 30, 2026</span>
           <a class="card-link" href="https://www.ru.nl/werken-bij/vacatures" target="_blank" rel="noopener">Apply →</a>
         </div>
-        <p class="note">Moderate fit — addiction/gambling not core focus but clinical methods directly applicable.</p>
+        <p class="note">Moderate fit — addiction focus but clinical methods directly applicable.</p>
       </article>
 
-      <!-- Card 5: Antwerp Well-being -->
-      <article class="card next2wk" data-groups="next2wk">
+      <!-- Antwerp Well-being -->
+      <article class="card next2wk" data-groups="next2wk be">
         <div class="card-top">
           <div class="card-flags">
             <span class="flag f-warn">Sep 30</span>
@@ -336,7 +323,7 @@ a:hover{text-decoration:underline}
         </div>
         <h3 class="card-title">Well-being & Mental Health in Legal Professions</h3>
         <div class="card-uni">University of Antwerp</div>
-        <p class="card-body">4-year FWO-funded salaried PhD examining occupational well-being, burnout, and mental health interventions among legal professionals (lawyers, judges). Mixed-methods psychology research with organisational component.</p>
+        <p class="card-body">4-year FWO-funded salaried PhD examining occupational well-being, burnout, and mental health interventions among legal professionals. Mixed-methods psychology research with an organisational component.</p>
         <div class="card-tags">
           <span class="tag">Occupational Psychology</span>
           <span class="tag">Well-being</span>
@@ -344,10 +331,103 @@ a:hover{text-decoration:underline}
           <span class="tag">Belgium</span>
         </div>
         <div class="card-footer">
-          <span class="deadline soon">⏳ Sep 30, 2026</span>
+          <span class="deadline dl-warn">⏳ Sep 30, 2026</span>
           <a class="card-link" href="https://www.uantwerpen.be/en/research/research-at-antwerp/jobs-research/" target="_blank" rel="noopener">Apply →</a>
         </div>
-        <p class="note">Lower fit — occupational/legal focus rather than clinical; apply only if other positions secured.</p>
+        <p class="note">Lower fit — occupational/legal focus. Apply only if other options are secured.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- NEW TODAY — Belgium -->
+  <section class="section" id="sec-new">
+    <div class="section-head">
+      <h2 class="section-label">✨ New Today — Belgium Cluster</h2>
+      <div class="section-sep"></div>
+      <span class="section-count">3 new positions</span>
+    </div>
+    <div class="new-banner">✨ Found in today's scan — deadlines pending verification on institution sites</div>
+    <div class="grid">
+
+      <!-- KU Leuven MIND-EX -->
+      <article class="card newentry" data-groups="newentry be highfit">
+        <div class="card-top">
+          <div class="card-flags">
+            <span class="flag f-new">✨ NEW</span>
+            <span class="flag f-new">🇧🇪 Belgium</span>
+            <span class="flag f-accent">Salaried</span>
+          </div>
+          <div class="fit-ring fit-90">90%</div>
+        </div>
+        <h3 class="card-title">MIND-EX: Mechanistic Test of Mindfulness-Enhanced Exposure Therapy</h3>
+        <div class="card-uni">KU Leuven — Faculty of Psychology & Educational Sciences</div>
+        <p class="card-body">Salaried 4-year PhD testing the mechanisms through which mindfulness practice augments exposure therapy outcomes in anxiety and trauma disorders. Combines RCT design with process measurement (physiological, self-report, behavioural) to identify active ingredients. Directly in psychotherapy research.</p>
+        <div class="card-tags">
+          <span class="tag">Psychotherapy Research</span>
+          <span class="tag">Mindfulness</span>
+          <span class="tag">Exposure Therapy</span>
+          <span class="tag">Anxiety / Trauma</span>
+          <span class="tag">KU Leuven</span>
+        </div>
+        <div class="card-footer">
+          <span class="deadline dl-tbc">📋 Deadline — verify on site</span>
+          <a class="card-link" href="https://academicpositions.com/ad/ku-leuven/2026/phd-researcher-a-mechanistic-test-of-mindfulness-enhanced-exposure-therapy-mind-ex/247872" target="_blank" rel="noopener">View →</a>
+        </div>
+        <p class="note">🌟 Exceptional fit — highest relevance this scan. Psychotherapy mechanisms research, clinical methods, anxiety/trauma. PRIORITISE alongside Maastricht.</p>
+      </article>
+
+      <!-- KU Leuven PTSD -->
+      <article class="card newentry" data-groups="newentry be highfit">
+        <div class="card-top">
+          <div class="card-flags">
+            <span class="flag f-new">✨ NEW</span>
+            <span class="flag f-new">🇧🇪 Belgium</span>
+            <span class="flag f-accent">Salaried</span>
+          </div>
+          <div class="fit-ring fit-85">85%</div>
+        </div>
+        <h3 class="card-title">Learning Processes in the Onset & Treatment of PTSD</h3>
+        <div class="card-uni">KU Leuven — Faculty of Psychology & Educational Sciences</div>
+        <p class="card-body">Salaried 4-year PhD investigating learning and conditioning mechanisms (fear acquisition, extinction, generalisation) that underlie PTSD development and that can be targeted in evidence-based psychological treatments. Strong clinical psychology research profile required.</p>
+        <div class="card-tags">
+          <span class="tag">PTSD</span>
+          <span class="tag">Clinical Psychology</span>
+          <span class="tag">Fear Extinction</span>
+          <span class="tag">Learning Theory</span>
+          <span class="tag">KU Leuven</span>
+        </div>
+        <div class="card-footer">
+          <span class="deadline dl-tbc">📋 Deadline — verify on site</span>
+          <a class="card-link" href="https://academicpositions.com/ad/ku-leuven/2026/phd-researcher-learning-processes-in-the-onset-and-treatment-of-ptsd/247871" target="_blank" rel="noopener">View →</a>
+        </div>
+        <p class="note">Very high fit: PTSD, learning theory, clinical treatment research — all match Kanchan's profile strongly. Verify deadline immediately at kuleuven.be.</p>
+      </article>
+
+      <!-- Ghent -->
+      <article class="card newentry" data-groups="newentry be highfit">
+        <div class="card-top">
+          <div class="card-flags">
+            <span class="flag f-new">✨ NEW</span>
+            <span class="flag f-new">🇧🇪 Belgium</span>
+            <span class="flag f-accent">Salaried</span>
+          </div>
+          <div class="fit-ring fit-70">70%</div>
+        </div>
+        <h3 class="card-title">Doctoral Fellow — Experimental Clinical &amp; Health Psychology</h3>
+        <div class="card-uni">Ghent University — Dept. of Experimental Clinical and Health Psychology</div>
+        <p class="card-body">Salaried 4-year doctoral fellowship within Ghent's Department of Experimental Clinical and Health Psychology — one of Belgium's leading clinical psychology research departments. Specific research topic TBC; the department works on anxiety, OCD, depression, chronic illness, and transdiagnostic interventions.</p>
+        <div class="card-tags">
+          <span class="tag">Clinical Psychology</span>
+          <span class="tag">Health Psychology</span>
+          <span class="tag">Ghent University</span>
+          <span class="tag">Belgium</span>
+        </div>
+        <div class="card-footer">
+          <span class="deadline dl-tbc">📋 Deadline — verify on site</span>
+          <a class="card-link" href="https://academicpositions.com/ad/ghent-university/2026/doctoral-fellow-department-of-experimental-clinical-and-health-psychology/250527" target="_blank" rel="noopener">View →</a>
+        </div>
+        <p class="note">Strong department match. Check the specific research topic on the listing — if anxiety/OCD/depression, this is a high-priority application.</p>
       </article>
 
     </div>
@@ -362,8 +442,8 @@ a:hover{text-decoration:underline}
     </div>
     <div class="grid">
 
-      <!-- Card 6: Maastricht TOP PICK -->
-      <article class="card october" data-groups="october highfit">
+      <!-- Maastricht TOP PICK -->
+      <article class="card october" data-groups="october nl highfit">
         <div class="card-top">
           <div class="card-flags">
             <span class="flag f-top">⭐ Top Pick</span>
@@ -383,14 +463,14 @@ a:hover{text-decoration:underline}
           <span class="tag">NWO</span>
         </div>
         <div class="card-footer">
-          <span class="deadline ok">📆 Oct 4, 2026</span>
+          <span class="deadline dl-ok">📆 Oct 4, 2026</span>
           <a class="card-link" href="https://www.maastrichtuniversity.nl/about-um/working-um/vacancies" target="_blank" rel="noopener">Apply →</a>
         </div>
-        <p class="note">Best match this scan: psychotherapy + clinical methods + funded Dutch position. PRIORITISE.</p>
+        <p class="note">Best confirmed-deadline match: psychotherapy + clinical methods + funded Dutch position. PRIORITISE alongside MIND-EX.</p>
       </article>
 
-      <!-- Card 7: ULB Adolescent Mental Health -->
-      <article class="card october" data-groups="october">
+      <!-- ULB -->
+      <article class="card october" data-groups="october be">
         <div class="card-top">
           <div class="card-flags">
             <span class="flag f-info">Oct 12</span>
@@ -409,13 +489,13 @@ a:hover{text-decoration:underline}
           <span class="tag">FNRS</span>
         </div>
         <div class="card-footer">
-          <span class="deadline ok">📆 Oct 12, 2026</span>
+          <span class="deadline dl-ok">📆 Oct 12, 2026</span>
           <a class="card-link" href="https://www.ulb.be/en/working-ulb/research-jobs" target="_blank" rel="noopener">Apply →</a>
         </div>
-        <p class="note">3 available seats — good odds. Adolescent mental health is adjacent to clinical focus.</p>
+        <p class="note">3 seats — good odds. Adolescent mental health adjacent to clinical focus.</p>
       </article>
 
-      <!-- Card 8: Exeter Moral Injury -->
+      <!-- Exeter Moral Injury -->
       <article class="card october" data-groups="october uk highfit">
         <div class="card-top">
           <div class="card-flags">
@@ -427,7 +507,7 @@ a:hover{text-decoration:underline}
         </div>
         <h3 class="card-title">Moral Injury in Eating Disorders</h3>
         <div class="card-uni">University of Exeter — Clinical Psychology</div>
-        <p class="card-body">UKRI-funded stipend PhD (fees + maintenance) investigating the role of moral injury in the development and maintenance of eating disorders. Combines clinical psychology theory with novel psychological construct research and intervention implications.</p>
+        <p class="card-body">UKRI-funded stipend PhD investigating the role of moral injury in the development and maintenance of eating disorders. Combines clinical psychology theory with novel psychological construct research and intervention implications.</p>
         <div class="card-tags">
           <span class="tag">Clinical Psychology</span>
           <span class="tag">Eating Disorders</span>
@@ -435,13 +515,13 @@ a:hover{text-decoration:underline}
           <span class="tag">UKRI</span>
         </div>
         <div class="card-footer">
-          <span class="deadline ok">📆 Oct 21, 2026</span>
+          <span class="deadline dl-ok">📆 Oct 21, 2026</span>
           <a class="card-link" href="https://www.findaphd.com/phds/?Keywords=moral+injury+eating+disorders+exeter" target="_blank" rel="noopener">Apply →</a>
         </div>
-        <p class="note">Good fit: clinical psychology, novel constructs, strong research reputation at Exeter.</p>
+        <p class="note">Good fit: clinical psychology, novel constructs, strong Exeter reputation.</p>
       </article>
 
-      <!-- Card 9: Exeter Women's Health -->
+      <!-- Exeter Women's -->
       <article class="card october" data-groups="october uk">
         <div class="card-top">
           <div class="card-flags">
@@ -451,9 +531,9 @@ a:hover{text-decoration:underline}
           </div>
           <div class="fit-ring fit-50">50%</div>
         </div>
-        <h3 class="card-title">Diet, Women's Health & AI-Driven Insights</h3>
+        <h3 class="card-title">Diet, Women's Health &amp; AI-Driven Insights</h3>
         <div class="card-uni">University of Exeter — Health Psychology</div>
-        <p class="card-body">UKRI-funded PhD examining dietary patterns, hormonal health, and psychological well-being in women, with an AI/machine learning component for pattern detection. Health psychology research with quantitative/computational methods.</p>
+        <p class="card-body">UKRI-funded PhD examining dietary patterns, hormonal health, and psychological well-being in women, with an AI/machine learning component. Health psychology research with quantitative methods.</p>
         <div class="card-tags">
           <span class="tag">Health Psychology</span>
           <span class="tag">Women's Health</span>
@@ -461,10 +541,10 @@ a:hover{text-decoration:underline}
           <span class="tag">UKRI</span>
         </div>
         <div class="card-footer">
-          <span class="deadline ok">📆 Oct 21, 2026</span>
+          <span class="deadline dl-ok">📆 Oct 21, 2026</span>
           <a class="card-link" href="https://www.findaphd.com/phds/?Keywords=women+health+psychology+exeter+diet" target="_blank" rel="noopener">Apply →</a>
         </div>
-        <p class="note">Moderate fit — health psychology core is relevant but AI/diet focus is a significant stretch.</p>
+        <p class="note">Moderate fit — health psychology core relevant; AI/diet is a stretch.</p>
       </article>
 
     </div>
@@ -473,13 +553,12 @@ a:hover{text-decoration:underline}
   <!-- SCHOLARSHIPS -->
   <section class="section" id="sec-scholarships">
     <div class="section-head">
-      <h2 class="section-label">💰 Scholarships & Funding</h2>
+      <h2 class="section-label">💰 Scholarships &amp; Funding</h2>
       <div class="section-sep"></div>
       <span class="section-count">2 opportunities</span>
     </div>
     <div class="grid">
 
-      <!-- HKPFS -->
       <article class="card scholarship" data-groups="scholarship">
         <div class="card-top">
           <div class="card-flags">
@@ -491,21 +570,19 @@ a:hover{text-decoration:underline}
         </div>
         <h3 class="card-title">Hong Kong PhD Fellowship Scheme 2027/28</h3>
         <div class="card-uni">Research Grants Council, Hong Kong</div>
-        <p class="card-body">Prestigious 3-year fellowship (HK$336,000/yr + HK$13,500 conference allowance) for outstanding PhD candidates at any Hong Kong university. Covers any psychology/clinical psychology research topic. 300 places per year across all disciplines.</p>
+        <p class="card-body">Prestigious 3-year fellowship (HK$336,000/yr + conference allowance) for outstanding PhD candidates at any HK university. Covers any psychology/clinical psychology research topic.</p>
         <div class="card-tags">
           <span class="tag">HKD 336k/yr</span>
           <span class="tag">Open topic</span>
           <span class="tag">3 years</span>
-          <span class="tag">Competitive</span>
         </div>
         <div class="card-footer">
-          <span class="deadline ok">📆 Dec 1, 2026</span>
+          <span class="deadline dl-ok">📆 Dec 1, 2026</span>
           <a class="card-link" href="https://www.rgc.edu.hk/rgc/scholarships-and-fellowships/hkpfs/" target="_blank" rel="noopener">Details →</a>
         </div>
         <p class="note">Must secure a supervisor at HKU, CUHK, PolyU, HKUST or CityU first, then apply for the fellowship.</p>
       </article>
 
-      <!-- Wellcome -->
       <article class="card scholarship" data-groups="scholarship">
         <div class="card-top">
           <div class="card-flags">
@@ -517,18 +594,17 @@ a:hover{text-decoration:underline}
         </div>
         <h3 class="card-title">Wellcome Trust 4-Year PhD Programmes — Mental Health</h3>
         <div class="card-uni">Wellcome Trust (multiple UK universities)</div>
-        <p class="card-body">Full stipend (≈£20,000/yr) + fees + research budget for 4-year structured PhDs at Wellcome-funded programmes. Mental Health, Global Health, and Neuroscience programmes most relevant. Annual recruitment cycle opening Dec–Jan.</p>
+        <p class="card-body">Full stipend (≈£20,000/yr) + fees + research budget for 4-year structured PhDs. Mental Health, Global Health tracks most relevant. Annual recruitment cycle opening Dec–Jan.</p>
         <div class="card-tags">
           <span class="tag">£20k/yr</span>
           <span class="tag">Mental Health track</span>
           <span class="tag">4 years</span>
-          <span class="tag">Wellcome</span>
         </div>
         <div class="card-footer">
-          <span class="deadline ok">📆 Jan 2027</span>
+          <span class="deadline dl-ok">📆 Jan 2027</span>
           <a class="card-link" href="https://wellcome.org/grant-funding/schemes/four-year-phd-programmes" target="_blank" rel="noopener">Details →</a>
         </div>
-        <p class="note">Wellcome Mental Health PhD programmes at UCL, King's, Edinburgh are particularly strong for clinical psychology.</p>
+        <p class="note">Wellcome Mental Health PhD programmes at UCL, King's, Edinburgh particularly strong for clinical psychology.</p>
       </article>
 
     </div>
@@ -537,38 +613,34 @@ a:hover{text-decoration:underline}
   <!-- CONFERENCES -->
   <section class="section" id="sec-conferences">
     <div class="section-head">
-      <h2 class="section-label">📅 Conferences & Training</h2>
+      <h2 class="section-label">📅 Conferences &amp; Training</h2>
       <div class="section-sep"></div>
       <span class="section-count">2 events</span>
     </div>
     <div class="grid">
 
-      <!-- EACLIPT -->
       <article class="card conference" data-groups="conference">
         <div class="card-top">
           <div class="card-flags">
             <span class="flag f-warn">Conference</span>
             <span class="flag f-warn">🇱🇹 Vilnius</span>
-            <span class="flag f-warn">NEW</span>
           </div>
         </div>
         <h3 class="card-title">EACLIPT 2027 — European Association for Clinical Psychology</h3>
         <div class="card-uni">Vilnius, Lithuania · Jun 2027 (est.)</div>
-        <p class="card-body">Annual congress of the European Association for Clinical Psychology and Psychological Treatment. Premier European venue for clinical psychology research: psychotherapy outcomes, transdiagnostic approaches, trauma, anxiety, and mood disorders. Strong networking for PhD applicants.</p>
+        <p class="card-body">Annual congress of the European Association for Clinical Psychology. Premier European venue for clinical psychology research: psychotherapy outcomes, transdiagnostic approaches, trauma, anxiety. Strong networking for PhD applicants.</p>
         <div class="card-tags">
           <span class="tag">Clinical Psychology</span>
           <span class="tag">Psychotherapy</span>
-          <span class="tag">Europe</span>
           <span class="tag">Networking</span>
         </div>
         <div class="card-footer">
-          <span class="deadline ok">📆 Jun 2027</span>
+          <span class="deadline dl-ok">📆 Jun 2027</span>
           <a class="card-link" href="https://eaclipt.eu" target="_blank" rel="noopener">Details →</a>
         </div>
         <p class="note">Abstract submission typically opens Jan–Feb 2027. Presenting strengthens PhD applications.</p>
       </article>
 
-      <!-- Global Psychology -->
       <article class="card conference" data-groups="conference">
         <div class="card-top">
           <div class="card-flags">
@@ -578,18 +650,17 @@ a:hover{text-decoration:underline}
         </div>
         <h3 class="card-title">Global Psychology Conference 2027</h3>
         <div class="card-uni">London, UK · Mar 2027 (est.)</div>
-        <p class="card-body">International conference on applied and research psychology, covering clinical, health, and community psychology. Poster and oral presentation opportunities. Registration for early-career researchers often includes reduced fees.</p>
+        <p class="card-body">International conference on applied and research psychology covering clinical, health, and community psychology. Early-career reduced fees. Good for CV building and meeting potential supervisors.</p>
         <div class="card-tags">
           <span class="tag">Psychology</span>
           <span class="tag">Early Career</span>
-          <span class="tag">Applied</span>
           <span class="tag">London</span>
         </div>
         <div class="card-footer">
-          <span class="deadline ok">📆 Mar 2027</span>
+          <span class="deadline dl-ok">📆 Mar 2027</span>
           <a class="card-link" href="https://www.globalpsychologyconferences.com" target="_blank" rel="noopener">Details →</a>
         </div>
-        <p class="note">Good for CV building and meeting potential supervisors. Watch for early-bird registration Oct–Nov 2026.</p>
+        <p class="note">Watch for early-bird registration Oct–Nov 2026.</p>
       </article>
 
     </div>
@@ -598,22 +669,29 @@ a:hover{text-decoration:underline}
   <!-- EXCLUDED -->
   <section class="section" id="sec-excluded">
     <div class="section-head">
-      <h2 class="section-label">🚫 Excluded from This Scan</h2>
+      <h2 class="section-label">🚫 Excluded / Expired</h2>
       <div class="section-sep"></div>
-      <span class="section-count">removed entries</span>
     </div>
     <div class="excl-grid">
       <div class="excl-row">
-        <span>🧠 IMPRS for Translational Psychiatry, Munich (2 cohorts)</span>
-        <span class="excl-reason">Psychiatry/clinical medicine track — requires MD/MBBS</span>
+        <span>⏰ UMC Utrecht — Psychotherapy for Military Mental Health</span>
+        <span class="excl-reason">Deadline Sep 17, 2026 — expired</span>
       </div>
       <div class="excl-row">
-        <span>🧠 IMPRS for Cognitive & Brain Sciences, Leipzig</span>
-        <span class="excl-reason">Cognitive neuroscience — not clinical/counselling psychology</span>
+        <span>🧠 IMPRS for Translational Psychiatry, Munich (2 cohorts)</span>
+        <span class="excl-reason">Psychiatry/clinical medicine — requires MD/MBBS</span>
+      </div>
+      <div class="excl-row">
+        <span>🧠 IMPRS for Cognitive &amp; Brain Sciences, Leipzig</span>
+        <span class="excl-reason">Cognitive neuroscience — not clinical psychology</span>
       </div>
       <div class="excl-row">
         <span>🧠 University of Jyväskylä — Gut-Brain Coupling</span>
         <span class="excl-reason">Neuroscience/physiology — not psychology research</span>
+      </div>
+      <div class="excl-row">
+        <span>⏰ Utrecht University — Interpersonal Emotion Regulation PhD</span>
+        <span class="excl-reason">Deadline Aug 23, 2026 — expired before this scan</span>
       </div>
     </div>
   </section>
@@ -621,7 +699,7 @@ a:hover{text-decoration:underline}
 </main>
 
 <footer class="footer">
-  Kanchan PhD Tracker · Automated daily scan · 2026-09-15 · Clinical &amp; Health Psychology only · No psychiatry / no MD track
+  Kanchan PhD Tracker · Automated daily scan · 2026-09-17 · Clinical &amp; Health Psychology only · No psychiatry / no MD track
 </footer>
 
 <script>
@@ -637,7 +715,6 @@ function filterCards(btn) {
       card.classList.toggle('hidden', !groups.includes(f));
     }
   });
-  // Show/hide section headers based on visible cards
   document.querySelectorAll('.section').forEach(sec => {
     if (sec.id === 'sec-excluded') return;
     const visible = [...sec.querySelectorAll('.card')].some(c => !c.classList.contains('hidden'));
