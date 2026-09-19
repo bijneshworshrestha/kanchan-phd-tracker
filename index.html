@@ -8,75 +8,75 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
 <style>
 :root {
-  --bg: #f8f7f4;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-2: #f2f0eb;
-  --border: #e4e0d8;
-  --text: #1a1917;
-  --text-2: #5a5750;
-  --text-3: #8a8680;
-  --accent: #2d6a4f;
-  --accent-light: #d8f3dc;
-  --urgent: #b5232b;
-  --urgent-light: #fde8e9;
-  --warn: #c17d11;
-  --warn-light: #fef3cd;
-  --info: #1565c0;
-  --info-light: #e3f2fd;
-  --new: #6b3fa0;
-  --new-light: #ede7f6;
-  --muted: #6b6860;
-  --muted-light: #f0eeea;
-  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.04);
-  --radius: 12px;
+  --surface-2: #f5f5f5;
+  --border: #cccccc;
+  --text: #080808;
+  --text-2: #444444;
+  --text-3: #888888;
+  --accent: #0044cc;
+  --accent-light: #e8eeff;
+  --urgent: #cc0000;
+  --urgent-light: #fff0f0;
+  --warn: #bb6600;
+  --warn-light: #fff8ec;
+  --info: #0044cc;
+  --info-light: #e8eeff;
+  --new: #6600cc;
+  --new-light: #f5eeff;
+  --muted: #888888;
+  --muted-light: #f5f5f5;
+  --shadow: 0 1px 0 rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+  --radius: 4px;
   --font-serif: 'DM Serif Display', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #141412;
-    --surface: #1f1e1b;
-    --surface-2: #2a2926;
-    --border: #3a3834;
-    --text: #f0ede6;
-    --text-2: #b0ac9f;
-    --text-3: #706c62;
-    --accent: #52b788;
-    --accent-light: #1a3d2b;
-    --urgent: #e05c63;
-    --urgent-light: #3d1416;
-    --warn: #e8a030;
-    --warn-light: #3d2c08;
-    --info: #5b9bd5;
-    --info-light: #0d2440;
-    --new: #a78bd4;
-    --new-light: #2d1f4a;
-    --muted: #90877a;
-    --muted-light: #252320;
-    --shadow: 0 1px 3px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.2);
+    --bg: #000000;
+    --surface: #0d0d0d;
+    --surface-2: #1a1a1a;
+    --border: #2e2e2e;
+    --text: #f0f0f0;
+    --text-2: #aaaaaa;
+    --text-3: #555555;
+    --accent: #4488ff;
+    --accent-light: #001133;
+    --urgent: #ff3333;
+    --urgent-light: #220000;
+    --warn: #ffaa00;
+    --warn-light: #221500;
+    --info: #4488ff;
+    --info-light: #001133;
+    --new: #aa44ff;
+    --new-light: #110022;
+    --muted: #666666;
+    --muted-light: #111111;
+    --shadow: 0 1px 0 rgba(255,255,255,.06), 0 2px 8px rgba(0,0,0,.5);
   }
 }
 :root[data-theme="dark"] {
-  --bg: #141412;
-  --surface: #1f1e1b;
-  --surface-2: #2a2926;
-  --border: #3a3834;
-  --text: #f0ede6;
-  --text-2: #b0ac9f;
-  --text-3: #706c62;
-  --accent: #52b788;
-  --accent-light: #1a3d2b;
-  --urgent: #e05c63;
-  --urgent-light: #3d1416;
-  --warn: #e8a030;
-  --warn-light: #3d2c08;
-  --info: #5b9bd5;
-  --info-light: #0d2440;
-  --new: #a78bd4;
-  --new-light: #2d1f4a;
-  --muted: #90877a;
-  --muted-light: #252320;
-  --shadow: 0 1px 3px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.2);
+  --bg: #000000;
+  --surface: #0d0d0d;
+  --surface-2: #1a1a1a;
+  --border: #2e2e2e;
+  --text: #f0f0f0;
+  --text-2: #aaaaaa;
+  --text-3: #555555;
+  --accent: #4488ff;
+  --accent-light: #001133;
+  --urgent: #ff3333;
+  --urgent-light: #220000;
+  --warn: #ffaa00;
+  --warn-light: #221500;
+  --info: #4488ff;
+  --info-light: #001133;
+  --new: #aa44ff;
+  --new-light: #110022;
+  --muted: #666666;
+  --muted-light: #111111;
+  --shadow: 0 1px 0 rgba(255,255,255,.06), 0 2px 8px rgba(0,0,0,.5);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -155,6 +155,8 @@ a:hover{text-decoration:underline}
 .dl-urgent{color:var(--urgent)}
 .dl-warn{color:var(--warn)}
 .dl-ok{color:var(--accent)}
+.dl-expired{color:var(--text-3);text-decoration:line-through}
+.dl-tbc{color:var(--text-2)}
 .dl-tbc{color:var(--new)}
 .card-link{font-size:.78rem;font-weight:600;color:var(--accent);padding:4px 10px;border:1px solid var(--accent);border-radius:6px}
 .card-link:hover{background:var(--accent);color:#fff;text-decoration:none}
@@ -183,12 +185,12 @@ a:hover{text-decoration:underline}
     </div>
     <div class="stats">
       <span class="stat s-urgent">🔴 1 Urgent</span>
-      <span class="stat s-pos">🎓 11 Positions</span>
-      <span class="stat s-new">✨ 3 New</span>
+      <span class="stat s-pos">🎓 13 Positions</span>
+      <span class="stat s-new">✨ 2 New</span>
       <span class="stat s-scholar">💰 2 Scholarships</span>
     </div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span class="header-meta">Scanned 2026-09-17</span>
+      <span class="header-meta">Scanned 2026-09-19</span>
       <button class="theme-btn" onclick="toggleTheme()">🌙 Theme</button>
     </div>
   </div>
@@ -196,16 +198,17 @@ a:hover{text-decoration:underline}
 
 <nav class="filter-bar" aria-label="Filter positions">
   <div class="filter-inner">
-    <button class="tab active" data-filter="all" onclick="filterCards(this)">All <span class="count">(15)</span></button>
+    <button class="tab active" data-filter="all" onclick="filterCards(this)">All <span class="count">(17)</span></button>
     <button class="tab" data-filter="urgent" onclick="filterCards(this)">🔴 Urgent <span class="count">(1)</span></button>
     <button class="tab" data-filter="next2wk" onclick="filterCards(this)">⏳ Next 2 wks <span class="count">(3)</span></button>
     <button class="tab" data-filter="october" onclick="filterCards(this)">📆 October <span class="count">(4)</span></button>
-    <button class="tab" data-filter="newentry" onclick="filterCards(this)">✨ New Today <span class="count">(3)</span></button>
+    <button class="tab" data-filter="newentry19" onclick="filterCards(this)">✨ New Today <span class="count">(2)</span></button>
+    <button class="tab" data-filter="newentry" onclick="filterCards(this)">🇧🇪 Belgium TBC <span class="count">(3)</span></button>
     <button class="tab" data-filter="scholarship" onclick="filterCards(this)">💰 Scholarships <span class="count">(2)</span></button>
     <button class="tab" data-filter="conference" onclick="filterCards(this)">📅 Conferences <span class="count">(2)</span></button>
-    <button class="tab" data-filter="nl" onclick="filterCards(this)">🇳🇱 Netherlands <span class="count">(4)</span></button>
+    <button class="tab" data-filter="nl" onclick="filterCards(this)">🇳🇱 Netherlands <span class="count">(6)</span></button>
     <button class="tab" data-filter="be" onclick="filterCards(this)">🇧🇪 Belgium <span class="count">(5)</span></button>
-    <button class="tab" data-filter="uk" onclick="filterCards(this)">🇬🇧 UK <span class="count">(2)</span></button>
+    <button class="tab" data-filter="uk" onclick="filterCards(this)">🇬🇧 UK <span class="count">(3)</span></button>
     <button class="tab" data-filter="highfit" onclick="filterCards(this)">⭐ ≥80% fit <span class="count">(5)</span></button>
   </div>
 </nav>
@@ -241,10 +244,10 @@ a:hover{text-decoration:underline}
           <span class="tag">UKRI</span>
         </div>
         <div class="card-footer">
-          <span class="deadline dl-urgent">⚠ Sep 22, 2026 — 5 days</span>
+          <span class="deadline" data-deadline="2026-09-22"></span>
           <a class="card-link" href="https://www.findaphd.com/phds/project/health-psychology-epidemic-models/" target="_blank" rel="noopener">Apply →</a>
         </div>
-        <p class="note">Moderate fit — health psychology core well aligned; quantitative modelling is a stretch. Apply this weekend.</p>
+        <p class="note">Moderate fit — health psychology core well aligned; quantitative modelling is a stretch. ⚠️ Deadline Monday 22 Sep — apply TODAY if submitting.</p>
       </article>
 
     </div>
@@ -279,7 +282,7 @@ a:hover{text-decoration:underline}
           <span class="tag">NWO</span>
         </div>
         <div class="card-footer">
-          <span class="deadline dl-warn">⏳ Sep 27, 2026</span>
+          <span class="deadline" data-deadline="2026-09-27"></span>
           <a class="card-link" href="https://www.uu.nl/en/organisation/working-at-utrecht-university/jobs" target="_blank" rel="noopener">Apply →</a>
         </div>
         <p class="note">High fit: directly in clinical psychology, experimental methods match profile. Salaried NL position.</p>
@@ -305,7 +308,7 @@ a:hover{text-decoration:underline}
           <span class="tag">ZonMw</span>
         </div>
         <div class="card-footer">
-          <span class="deadline dl-warn">⏳ Sep 30, 2026</span>
+          <span class="deadline" data-deadline="2026-09-30"></span>
           <a class="card-link" href="https://www.ru.nl/werken-bij/vacatures" target="_blank" rel="noopener">Apply →</a>
         </div>
         <p class="note">Moderate fit — addiction focus but clinical methods directly applicable.</p>
@@ -331,7 +334,7 @@ a:hover{text-decoration:underline}
           <span class="tag">Belgium</span>
         </div>
         <div class="card-footer">
-          <span class="deadline dl-warn">⏳ Sep 30, 2026</span>
+          <span class="deadline" data-deadline="2026-09-30"></span>
           <a class="card-link" href="https://www.uantwerpen.be/en/research/research-at-antwerp/jobs-research/" target="_blank" rel="noopener">Apply →</a>
         </div>
         <p class="note">Lower fit — occupational/legal focus. Apply only if other options are secured.</p>
@@ -340,14 +343,81 @@ a:hover{text-decoration:underline}
     </div>
   </section>
 
-  <!-- NEW TODAY — Belgium -->
+  <!-- NEW TODAY — Sep 19 -->
+  <section class="section" id="sec-new19">
+    <div class="section-head">
+      <h2 class="section-label">✨ New Today — Sep 19</h2>
+      <div class="section-sep"></div>
+      <span class="section-count">2 new positions</span>
+    </div>
+    <div class="new-banner">✨ Found in today's scan — verify deadlines on institution sites</div>
+    <div class="grid">
+
+      <!-- UvA Precision Psychology -->
+      <article class="card newentry19" data-groups="newentry19 nl">
+        <div class="card-top">
+          <div class="card-flags">
+            <span class="flag f-new">✨ NEW</span>
+            <span class="flag f-accent">🇳🇱 Netherlands</span>
+            <span class="flag f-accent">Salaried · 2 seats</span>
+          </div>
+          <div class="fit-ring fit-70">70%</div>
+        </div>
+        <h3 class="card-title">Two PhD Candidates in Precision Psychology</h3>
+        <div class="card-uni">University of Amsterdam (UvA) — Department of Psychology</div>
+        <p class="card-body">Two salaried 4-year PhD positions in precision psychology — a research framework developing individualised, stratified approaches to understanding and treating mental health conditions. Likely combining clinical assessment, personalised intervention design, and quantitative modelling of individual-level treatment response.</p>
+        <div class="card-tags">
+          <span class="tag">Clinical Psychology</span>
+          <span class="tag">Precision Medicine</span>
+          <span class="tag">Personalised Treatment</span>
+          <span class="tag">UvA</span>
+          <span class="tag">2 seats</span>
+        </div>
+        <div class="card-footer">
+          <span class="deadline dl-tbc">📋 Deadline — verify on site</span>
+          <a class="card-link" href="https://www.academictransfer.com/en/jobs/360974/two-phd-candidates-in-precision-psychology" target="_blank" rel="noopener">View →</a>
+        </div>
+        <p class="note">Good fit if projects focus on anxiety, depression or trauma treatment personalisation. 2 seats improves odds. Check topic details on AcademicTransfer — Amsterdam is a top-tier NL clinical psychology department.</p>
+      </article>
+
+      <!-- Maastricht New Science of Mental Disorders -->
+      <article class="card newentry19" data-groups="newentry19 nl">
+        <div class="card-top">
+          <div class="card-flags">
+            <span class="flag f-new">✨ NEW</span>
+            <span class="flag f-accent">🇳🇱 Netherlands</span>
+            <span class="flag f-accent">Salaried</span>
+          </div>
+          <div class="fit-ring fit-65">65%</div>
+        </div>
+        <h3 class="card-title">PhD Candidate — New Science of Mental Disorders</h3>
+        <div class="card-uni">Maastricht University — Clinical Psychology</div>
+        <p class="card-body">Salaried PhD position within the NWO-funded "New Science of Mental Disorders" programme — a Dutch national research initiative rethinking the diagnosis, classification and treatment of mental disorders using network theory, transdiagnostic approaches and complexity science. Clinical psychology background valued.</p>
+        <div class="card-tags">
+          <span class="tag">Mental Health Research</span>
+          <span class="tag">Transdiagnostic</span>
+          <span class="tag">Network Theory</span>
+          <span class="tag">NWO</span>
+          <span class="tag">Maastricht</span>
+        </div>
+        <div class="card-footer">
+          <span class="deadline dl-tbc">📋 Deadline — verify on site</span>
+          <a class="card-link" href="https://vacancies.maastrichtuniversity.nl/job/Maastricht-PhD-Candidate-in-New-Science-of-Mental-Disorders/1359036857/" target="_blank" rel="noopener">View →</a>
+        </div>
+        <p class="note">Moderate fit — framework is theoretical/methodological but applies to clinical populations. Note Maastricht also has the Imagery Rescripting position (Oct 4, 85% fit) — check whether both applications to same dept are advisable.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- BELGIUM CLUSTER (found Sep 17) -->
   <section class="section" id="sec-new">
     <div class="section-head">
-      <h2 class="section-label">✨ New Today — Belgium Cluster</h2>
+      <h2 class="section-label">🇧🇪 Belgium Cluster — Deadlines TBC</h2>
       <div class="section-sep"></div>
-      <span class="section-count">3 new positions</span>
+      <span class="section-count">3 positions</span>
     </div>
-    <div class="new-banner">✨ Found in today's scan — deadlines pending verification on institution sites</div>
+    <div class="new-banner">📋 Deadlines unconfirmed — verify directly on each institution's jobs page before applying</div>
     <div class="grid">
 
       <!-- KU Leuven MIND-EX -->
@@ -463,7 +533,7 @@ a:hover{text-decoration:underline}
           <span class="tag">NWO</span>
         </div>
         <div class="card-footer">
-          <span class="deadline dl-ok">📆 Oct 4, 2026</span>
+          <span class="deadline" data-deadline="2026-10-04"></span>
           <a class="card-link" href="https://www.maastrichtuniversity.nl/about-um/working-um/vacancies" target="_blank" rel="noopener">Apply →</a>
         </div>
         <p class="note">Best confirmed-deadline match: psychotherapy + clinical methods + funded Dutch position. PRIORITISE alongside MIND-EX.</p>
@@ -489,7 +559,7 @@ a:hover{text-decoration:underline}
           <span class="tag">FNRS</span>
         </div>
         <div class="card-footer">
-          <span class="deadline dl-ok">📆 Oct 12, 2026</span>
+          <span class="deadline" data-deadline="2026-10-12"></span>
           <a class="card-link" href="https://www.ulb.be/en/working-ulb/research-jobs" target="_blank" rel="noopener">Apply →</a>
         </div>
         <p class="note">3 seats — good odds. Adolescent mental health adjacent to clinical focus.</p>
@@ -515,7 +585,7 @@ a:hover{text-decoration:underline}
           <span class="tag">UKRI</span>
         </div>
         <div class="card-footer">
-          <span class="deadline dl-ok">📆 Oct 21, 2026</span>
+          <span class="deadline" data-deadline="2026-10-21"></span>
           <a class="card-link" href="https://www.findaphd.com/phds/?Keywords=moral+injury+eating+disorders+exeter" target="_blank" rel="noopener">Apply →</a>
         </div>
         <p class="note">Good fit: clinical psychology, novel constructs, strong Exeter reputation.</p>
@@ -541,7 +611,7 @@ a:hover{text-decoration:underline}
           <span class="tag">UKRI</span>
         </div>
         <div class="card-footer">
-          <span class="deadline dl-ok">📆 Oct 21, 2026</span>
+          <span class="deadline" data-deadline="2026-10-21"></span>
           <a class="card-link" href="https://www.findaphd.com/phds/?Keywords=women+health+psychology+exeter+diet" target="_blank" rel="noopener">Apply →</a>
         </div>
         <p class="note">Moderate fit — health psychology core relevant; AI/diet is a stretch.</p>
@@ -577,7 +647,7 @@ a:hover{text-decoration:underline}
           <span class="tag">3 years</span>
         </div>
         <div class="card-footer">
-          <span class="deadline dl-ok">📆 Dec 1, 2026</span>
+          <span class="deadline" data-deadline="2026-12-01"></span>
           <a class="card-link" href="https://www.rgc.edu.hk/rgc/scholarships-and-fellowships/hkpfs/" target="_blank" rel="noopener">Details →</a>
         </div>
         <p class="note">Must secure a supervisor at HKU, CUHK, PolyU, HKUST or CityU first, then apply for the fellowship.</p>
@@ -699,10 +769,54 @@ a:hover{text-decoration:underline}
 </main>
 
 <footer class="footer">
-  Kanchan PhD Tracker · Automated daily scan · 2026-09-17 · Clinical &amp; Health Psychology only · No psychiatry / no MD track
+  Kanchan PhD Tracker · Automated daily scan · 2026-09-19 · Clinical &amp; Health Psychology only · No psychiatry / no MD track
 </footer>
 
 <script>
+// ── Dynamic deadline badges ──────────────────────────────────────────────────
+function renderDeadlines() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  document.querySelectorAll('.deadline[data-deadline]').forEach(el => {
+    const raw = el.dataset.deadline;
+    // Parse as local date (YYYY-MM-DD) to avoid UTC offset shifting the day
+    const [y, m, d] = raw.split('-').map(Number);
+    const due = new Date(y, m - 1, d);
+    const diff = Math.round((due - today) / 86400000); // whole days
+
+    let icon, label, cls;
+    if (diff < 0) {
+      icon = '❌';
+      label = `${raw.slice(5).replace('-', ' ')} — EXPIRED`;
+      cls = 'dl-expired';
+    } else if (diff === 0) {
+      icon = '🚨';
+      label = 'TODAY';
+      cls = 'dl-urgent';
+    } else if (diff <= 5) {
+      icon = '⚠';
+      const s = diff === 1 ? 'day' : 'days';
+      label = `${formatDate(due)} — ${diff} ${s}`;
+      cls = 'dl-urgent';
+    } else if (diff <= 14) {
+      icon = '⏳';
+      label = formatDate(due);
+      cls = 'dl-warn';
+    } else {
+      icon = '📆';
+      label = formatDate(due);
+      cls = 'dl-ok';
+    }
+    el.className = `deadline ${cls}`;
+    el.textContent = `${icon} ${label}`;
+  });
+}
+
+function formatDate(d) {
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// ── Filter cards ─────────────────────────────────────────────────────────────
 function filterCards(btn) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
@@ -720,6 +834,11 @@ function filterCards(btn) {
     const visible = [...sec.querySelectorAll('.card')].some(c => !c.classList.contains('hidden'));
     sec.style.display = visible ? '' : 'none';
   });
+  // also hide the new-banner when its section is hidden
+  document.querySelectorAll('.new-banner').forEach(b => {
+    const sec = b.closest('.section');
+    if (sec) b.style.display = sec.style.display === 'none' ? 'none' : '';
+  });
 }
 
 function toggleTheme() {
@@ -727,6 +846,9 @@ function toggleTheme() {
   const cur = r.getAttribute('data-theme');
   r.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
 }
+
+// Run on load
+document.addEventListener('DOMContentLoaded', renderDeadlines);
 </script>
 </body>
 </html>
