@@ -16,6 +16,21 @@
       "tags": ["Netherlands", "UK", "health-psych", "joint-phd", "URGENT"]
     },
     {
+      "id": "CUHK-01",
+      "title": "PhD in Clinical Psychology",
+      "institution": "Chinese University of Honk Kong × Graduate School",
+      "country": "Honk Kong, China",
+      "supervisor": "TBC",
+      "deadline": "2026-12-01",
+      "relevance": 75,
+      "status": "open",
+      "funding": "Funded",
+      "source": "auto",
+      "url": "https://www.gs.cuhk.edu.hk/programmes/social-science/phd-clinical-psychology",
+      "notes": "⚠ URGENT – deadline Dec 01. Clinical psychology focus.",
+      "tags": ["Honk Kong", "China", "clinical-psychology", "phd", "URGENT"]
+    },
+    {
       "id": "pos-uu-fff-01",
       "title": "PhD Freeze-Fight-Flight Responses – Clinical Psychology",
       "institution": "Utrecht University",
