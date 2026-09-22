@@ -16,21 +16,6 @@
       "tags": ["Netherlands", "UK", "health-psych", "joint-phd", "URGENT"]
     },
     {
-      "id": "CUHK-01",
-      "title": "PhD in Clinical Psychology",
-      "institution": "Chinese University of Honk Kong × Graduate School",
-      "country": "Honk Kong, China",
-      "supervisor": "TBC",
-      "deadline": "2026-12-01",
-      "relevance": 75,
-      "status": "open",
-      "funding": "Funded",
-      "source": "auto",
-      "url": "https://www.gs.cuhk.edu.hk/programmes/social-science/phd-clinical-psychology",
-      "notes": "⚠ URGENT – deadline Dec 01. Clinical psychology focus.",
-      "tags": ["Honk Kong", "China", "clinical-psychology", "phd", "URGENT"]
-    },
-    {
       "id": "pos-uu-fff-01",
       "title": "PhD Freeze-Fight-Flight Responses – Clinical Psychology",
       "institution": "Utrecht University",
@@ -224,6 +209,19 @@
       "url": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
       "notes": "Prestigious HK-wide fellowship. Open to international students. Dec 1 deadline. Strong for clinical psychology.",
       "tags": ["HK", "fellowship", "full-funding", "competitive"]
+    },
+    {
+      "id": "sch-gates-cambridge-01",
+      "name": "Gates Cambridge Scholarship 2027/28",
+      "provider": "Gates Cambridge Trust / University of Cambridge",
+      "amount": "Full funding: tuition + stipend + flights + family allowance",
+      "deadline": "2027-01-06",
+      "status": "open",
+      "relevance": 75,
+      "source": "opportunitiescorners.com",
+      "url": "https://www.gatescambridge.org/apply/timeline/",
+      "notes": "Prestigious fully-funded PhD at Cambridge. Open to all non-UK nationalities. Deadline Dec 8 2026 or Jan 6 2027 depending on course — check course directory. Highly competitive (~80 awards/yr). Clinical/health psychology is eligible. Verify exact course deadline at gatescambridge.org.",
+      "tags": ["UK", "Cambridge", "fellowship", "full-funding", "competitive", "international"]
     },
     {
       "id": "sch-wellcome-4yr-01",
