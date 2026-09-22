@@ -871,7 +871,9 @@ function fmtDate(d) {
 }
 function daysUntil(d) {
   if (!d) return null;
-  const diff = new Date(d + 'T00:00:00') - new Date(new Date().toDateString());
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const diff = new Date(d + 'T00:00:00') - today;
+  if (isNaN(diff)) return null;
   return Math.round(diff / 86400000);
 }
 function deadlineBadge(d) {
@@ -964,6 +966,7 @@ function navigate(section) {
   document.querySelectorAll('.nav-item').forEach(n => {
     if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + section + "'")) n.classList.add('active');
   });
+  renderCurrentSection();
 }
 
 // ── SYNC STATUS ──
@@ -1326,7 +1329,7 @@ function updateDashboard() {
                   : days < 0     ? `${Math.abs(days)}d ago`
                   : days === 0   ? 'Today!'
                   :                `${days}d`;
-      return `<div class="deadline-item" style="border-left:3px solid ${color};padding-left:13px">
+      return `<div class="deadline-item" style="border-left:3px solid ${color};padding-left:13px;cursor:pointer" onclick="navigate('${d.type === 'position' ? 'positions' : d.type === 'scholarship' ? 'scholarships' : 'conferences'}')">
         <div style="flex:1;min-width:0">
           <div class="deadline-name" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(d.name)}</div>
           <div class="deadline-org">${esc(d.org)} · ${d.type}${d.deadline ? ' · ' + fmtDate(d.deadline) : ''}</div>
