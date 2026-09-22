@@ -674,7 +674,7 @@ select.filter-select {
     <div class="page-header">
       <div>
         <div class="page-title">PhD Positions</div>
-        <div class="page-subtitle">Open funded research positions · sorted by relevance</div>
+        <div class="page-subtitle">Open funded research positions · sorted by nearest deadline</div>
       </div>
       <button class="btn btn-primary" onclick="openModal('positions')">+ Add Position</button>
     </div>
@@ -876,11 +876,20 @@ function daysUntil(d) {
 }
 function deadlineBadge(d) {
   const days = daysUntil(d);
-  if (days === null) return '';
-  if (days < 0) return `<span class="badge badge-muted">Passed</span>`;
-  if (days <= 30) return `<span class="badge badge-red">⚡ ${days}d</span>`;
-  if (days <= 90) return `<span class="badge badge-amber">⏳ ${days}d</span>`;
-  return `<span class="badge badge-green">${fmtDate(d)}</span>`;
+  if (days === null) return `<span class="badge badge-muted">TBC</span>`;
+  if (days < 0) return `<span class="badge badge-muted">Passed ${fmtDate(d)}</span>`;
+  if (days === 0) return `<span class="badge badge-red">⚡ Today!</span>`;
+  if (days <= 14) return `<span class="badge badge-red">⚡ ${days}d</span>`;
+  if (days <= 60) return `<span class="badge badge-amber">⏳ ${days}d</span>`;
+  return `<span class="badge badge-green">📅 ${fmtDate(d)}</span>`;
+}
+function deadlineCardBorder(d) {
+  const days = daysUntil(d);
+  if (days === null) return 'border-left:3px solid var(--border);';
+  if (days < 0)  return 'border-left:3px solid var(--muted);';
+  if (days <= 14) return 'border-left:3px solid var(--red);';
+  if (days <= 60) return 'border-left:3px solid var(--amber);';
+  return 'border-left:3px solid var(--green);';
 }
 function relevanceBadge(pct) {
   if (pct == null || pct === '') return '';
@@ -1106,11 +1115,18 @@ function filterSection(col, query, status) {
 
 // ── POSITIONS ──
 function renderPositions(items) {
-  const sorted = [...items].sort((a,b) => (parseInt(b.relevance)||0)-(parseInt(a.relevance)||0));
+  const sorted = [...items].sort((a, b) => {
+    const da = a.deadline ? new Date(a.deadline + 'T00:00:00') : null;
+    const db = b.deadline ? new Date(b.deadline + 'T00:00:00') : null;
+    if (da && db) return da - db;
+    if (da) return -1;
+    if (db) return 1;
+    return (parseInt(b.relevance)||0) - (parseInt(a.relevance)||0);
+  });
   const grid = document.getElementById('positions-grid');
   if (!sorted.length) { grid.innerHTML = emptyState('🔍','No positions yet','Add PhD positions you find, or paste from job boards and academic portals.'); return; }
   grid.innerHTML = sorted.map(p => `
-    <div class="card">
+    <div class="card" style="${deadlineCardBorder(p.deadline)}">
       <div>
         <div class="card-title">${esc(p.title)}</div>
         <div class="card-sub">${esc(p.institution)}${p.country ? ` · ${esc(p.country)}` : ''}</div>
@@ -1282,26 +1298,40 @@ function updateDashboard() {
   document.getElementById('stat-applications').textContent = activeApps;
 
   const deadlineItems = [
-    ...state.positions.filter(p => p.deadline && p.status !== 'closed').map(p => ({ name: p.title, org: p.institution, deadline: p.deadline, type: 'position' })),
-    ...state.scholarships.filter(s => s.deadline && s.status === 'open').map(s => ({ name: s.name, org: s.provider, deadline: s.deadline, type: 'scholarship' })),
-    ...state.conferences.filter(c => c.deadline).map(c => ({ name: c.name, org: c.location, deadline: c.deadline, type: 'conference' }))
-  ].filter(d => daysUntil(d.deadline) !== null && daysUntil(d.deadline) >= 0)
-   .sort((a,b) => new Date(a.deadline) - new Date(b.deadline))
-   .slice(0, 8);
+    ...state.positions.filter(p => p.status !== 'closed').map(p => ({ name: p.title, org: p.institution, deadline: p.deadline, type: 'position' })),
+    ...state.scholarships.filter(s => s.status === 'open' || s.status === 'applied').map(s => ({ name: s.name, org: s.provider, deadline: s.deadline, type: 'scholarship' })),
+    ...state.conferences.map(c => ({ name: c.name, org: c.location, deadline: c.deadline, type: 'conference' }))
+  ].sort((a, b) => {
+    const da = a.deadline ? new Date(a.deadline + 'T00:00:00') : null;
+    const db = b.deadline ? new Date(b.deadline + 'T00:00:00') : null;
+    if (da && db) return da - db;
+    if (da) return -1;
+    if (db) return 1;
+    return 0;
+  }).slice(0, 8);
 
   const dlEl = document.getElementById('dash-deadlines');
   if (!deadlineItems.length) {
-    dlEl.innerHTML = `<div class="empty-state" style="padding:24px"><div class="empty-icon">📅</div><div class="empty-desc">No upcoming deadlines.</div></div>`;
+    dlEl.innerHTML = `<div class="empty-state" style="padding:24px"><div class="empty-icon">📅</div><div class="empty-desc">No positions tracked yet.</div></div>`;
   } else {
     dlEl.innerHTML = deadlineItems.map(d => {
       const days = daysUntil(d.deadline);
-      const cls = days <= 30 ? 'var(--red)' : days <= 90 ? 'var(--amber)' : 'var(--green)';
-      return `<div class="deadline-item">
-        <div>
-          <div class="deadline-name">${esc(d.name)}</div>
-          <div class="deadline-org">${esc(d.org)} · ${d.type}</div>
+      const color = days === null ? 'var(--muted)'
+                  : days < 0    ? 'var(--muted)'
+                  : days === 0  ? 'var(--red)'
+                  : days <= 14  ? 'var(--red)'
+                  : days <= 60  ? 'var(--amber)'
+                  :               'var(--green)';
+      const label = days === null ? 'TBC'
+                  : days < 0     ? `${Math.abs(days)}d ago`
+                  : days === 0   ? 'Today!'
+                  :                `${days}d`;
+      return `<div class="deadline-item" style="border-left:3px solid ${color};padding-left:13px">
+        <div style="flex:1;min-width:0">
+          <div class="deadline-name" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(d.name)}</div>
+          <div class="deadline-org">${esc(d.org)} · ${d.type}${d.deadline ? ' · ' + fmtDate(d.deadline) : ''}</div>
         </div>
-        <div class="deadline-days" style="color:${cls}">${days}d</div>
+        <div class="deadline-days" style="color:${color};flex-shrink:0">${label}</div>
       </div>`;
     }).join('');
   }
@@ -1320,13 +1350,14 @@ function updateDashboard() {
     </div>`).join('');
   }
 
-  if (deadlineItems.length) {
-    const nearest = deadlineItems[0];
-    const days = daysUntil(nearest.deadline);
+  const nearestWithDeadline = deadlineItems.find(d => d.deadline);
+  if (nearestWithDeadline) {
+    const days = daysUntil(nearestWithDeadline.deadline);
+    const label = days === null ? '—' : days < 0 ? `${Math.abs(days)}d ago` : days === 0 ? '0' : String(days);
     document.getElementById('dash-countdown').style.display = 'flex';
-    document.getElementById('cd-days').textContent = days;
-    document.getElementById('cd-event').textContent = nearest.name;
-    document.getElementById('cd-desc').textContent = `${nearest.org} · ${fmtDate(nearest.deadline)}`;
+    document.getElementById('cd-days').textContent = label;
+    document.getElementById('cd-event').textContent = nearestWithDeadline.name;
+    document.getElementById('cd-desc').textContent = `${nearestWithDeadline.org} · ${fmtDate(nearestWithDeadline.deadline)}`;
   } else {
     document.getElementById('dash-countdown').style.display = 'none';
   }
