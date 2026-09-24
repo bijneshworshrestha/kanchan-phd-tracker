@@ -8,12 +8,12 @@
       "supervisor": "TBC",
       "deadline": "2026-09-22",
       "relevance": 55,
-      "status": "open",
+      "status": "closed",
       "funding": "Funded",
       "source": "auto",
       "url": "https://www.academictransfer.com",
-      "notes": "⚠ URGENT – deadline Sep 22. Joint program Sussex (UK) and Utrecht (NL). Health psychology focus.",
-      "tags": ["Netherlands", "UK", "health-psych", "joint-phd", "URGENT"]
+      "notes": "❌ CLOSED – deadline was Sep 22 2026 (now passed). No longer in AcademicTransfer search results. No longer accepting applications.",
+      "tags": ["Netherlands", "UK", "health-psych", "joint-phd", "closed"]
     },
     {
       "id": "pos-uu-fff-01",
@@ -26,8 +26,8 @@
       "status": "open",
       "funding": "Salaried",
       "source": "auto",
-      "url": "https://www.academictransfer.com",
-      "notes": "Clinical psychology position on threat responses. Strong fit.",
+      "url": "https://www.academictransfer.com/en/jobs/363856/phd-freeze-fight-flight-dynamics-in-mental-health-care/",
+      "notes": "✅ VERIFIED OPEN – Sep 27 deadline confirmed on AcademicTransfer (job #363856). Clinical psychology position bridging science and treatment for threat responses. Strong fit.",
       "tags": ["Netherlands", "clinical", "FFF", "salaried"]
     },
     {
@@ -41,8 +41,8 @@
       "status": "open",
       "funding": "Salaried",
       "source": "auto",
-      "url": "https://www.ru.nl/en/working-at/vacancies",
-      "notes": "Behavioural addictions / gambling harm. Partial fit with clinical background.",
+      "url": "https://www.ru.nl/en/working-at/job-opportunities/phd-position-beyond-the-odds-unravelling-pathways-to-gambling-related-harm",
+      "notes": "✅ VERIFIED OPEN – Sep 30 deadline confirmed on ru.nl. Salaried (€3,204–€4,051/mo). ZonMw-funded. Behavioural addictions / gambling harm. Partial fit with clinical background.",
       "tags": ["Netherlands", "clinical", "gambling", "salaried"]
     },
     {
@@ -56,8 +56,8 @@
       "status": "open",
       "funding": "Funded",
       "source": "auto",
-      "url": "https://www.uantwerpen.be",
-      "notes": "Well-being / occupational psychology in legal context. Lower clinical fit.",
+      "url": "https://academicpositions.com/ad/university-of-antwerp/2026/doctoral-scholarship-holder-well-being-in-legal-professions/252120",
+      "notes": "✅ VERIFIED OPEN – closing ~Sep 30 (7 days from Sep 24 per AcademicPositions, #252120). Fully funded 2+2 yr scholarship on well-being of criminal-law lawyers/judges. Lower clinical fit.",
       "tags": ["Belgium", "well-being", "occupational"]
     },
     {
@@ -66,14 +66,14 @@
       "institution": "University of Amsterdam",
       "country": "Netherlands",
       "supervisor": "TBC",
-      "deadline": "",
+      "deadline": "2026-06-03",
       "relevance": 70,
-      "status": "open",
+      "status": "closed",
       "funding": "Salaried",
       "source": "auto",
-      "url": "https://www.uva.nl",
-      "notes": "Two PhD positions in precision psychology methods. TBC deadline.",
-      "tags": ["Netherlands", "precision-psych", "methods"]
+      "url": "https://werkenbij.uva.nl/en/vacancies/two-phd-candidates-in-precision-psychology-netherlands-15107",
+      "notes": "❌ CLOSED – deadline was 3 June 2026 (confirmed via UvA jobs site). No longer accepting applications.",
+      "tags": ["Netherlands", "precision-psych", "methods", "closed"]
     },
     {
       "id": "pos-maas-nsmd-01",
@@ -81,14 +81,14 @@
       "institution": "Maastricht University",
       "country": "Netherlands",
       "supervisor": "TBC",
-      "deadline": "",
+      "deadline": "2026-05-31",
       "relevance": 65,
-      "status": "open",
+      "status": "closed",
       "funding": "Salaried",
       "source": "auto",
-      "url": "https://www.maastrichtuniversity.nl",
-      "notes": "Innovative mental disorders research programme. TBC deadline.",
-      "tags": ["Netherlands", "mental-health", "innovation"]
+      "url": "https://www.academictransfer.com/en/jobs/360538/phd-candidate-in-new-science-of-mental-disorders",
+      "notes": "❌ CLOSED – deadline was 31 May 2026 (confirmed via AcademicTransfer). No longer accepting applications.",
+      "tags": ["Netherlands", "mental-health", "innovation", "closed"]
     },
     {
       "id": "pos-kuleuven-mindex-01",
@@ -98,12 +98,12 @@
       "supervisor": "TBC",
       "deadline": "",
       "relevance": 90,
-      "status": "open",
+      "status": "closed",
       "funding": "Funded",
       "source": "auto",
-      "url": "https://www.kuleuven.be",
-      "notes": "⭐ TOP PICK. Mindfulness combined with exposure therapy for anxiety/OCD. Excellent clinical fit.",
-      "tags": ["Belgium", "KU Leuven", "mindfulness", "exposure", "clinical", "top-pick"]
+      "url": "https://academicpositions.com/ad/ku-leuven/2026/phd-researcher-a-mechanistic-test-of-mindfulness-enhanced-exposure-therapy-mind-ex/247872",
+      "notes": "❌ CLOSED – confirmed via KU Leuven jobsite (no results for mindfulness/exposure search) and AcademicPositions link now redirects to generic Belgium listings. No longer accepting applications.",
+      "tags": ["Belgium", "KU Leuven", "mindfulness", "exposure", "clinical", "top-pick", "closed"]
     },
     {
       "id": "pos-kuleuven-ptsd-01",
@@ -113,12 +113,12 @@
       "supervisor": "TBC",
       "deadline": "",
       "relevance": 85,
-      "status": "open",
+      "status": "closed",
       "funding": "Funded",
       "source": "auto",
-      "url": "https://www.kuleuven.be",
-      "notes": "PTSD and learning processes research. Strong clinical fit at KU Leuven.",
-      "tags": ["Belgium", "KU Leuven", "PTSD", "trauma", "clinical"]
+      "url": "https://www.kuleuven.be/personeel/jobsite/jobs/60661475",
+      "notes": "❌ CLOSED – confirmed via KU Leuven jobsite: 'Vacature 60661475 is gesloten of niet beschikbaar'. No longer accepting applications.",
+      "tags": ["Belgium", "KU Leuven", "PTSD", "trauma", "clinical", "closed"]
     },
     {
       "id": "pos-ghent-doctoral-01",
@@ -126,14 +126,14 @@
       "institution": "Ghent University",
       "country": "Belgium",
       "supervisor": "TBC",
-      "deadline": "",
+      "deadline": "2026-07-30",
       "relevance": 70,
-      "status": "open",
+      "status": "closed",
       "funding": "Funded",
       "source": "auto",
-      "url": "https://www.ugent.be",
-      "notes": "Experimental clinical and health psychology at Ghent. Good fit.",
-      "tags": ["Belgium", "Ghent", "clinical", "health-psych"]
+      "url": "https://www.ugent.be/en/work/scientific/doctoral-fellow-127",
+      "notes": "❌ CLOSED – deadline was 30 July 2026 (confirmed via ugent.be). Interviews were scheduled Aug 2026.",
+      "tags": ["Belgium", "Ghent", "clinical", "health-psych", "closed"]
     },
     {
       "id": "pos-maas-imagery-01",
@@ -146,8 +146,8 @@
       "status": "open",
       "funding": "Salaried",
       "source": "auto",
-      "url": "https://www.maastrichtuniversity.nl",
-      "notes": "⭐ Imagery rescripting intervention for panic disorder. Excellent clinical fit.",
+      "url": "https://www.academictransfer.com/en/jobs/363766/phd-candidate-reducing-avoidance-by-altering-threat-imagery-in-panic-disorder/",
+      "notes": "✅ VERIFIED OPEN – Oct 4 deadline confirmed on AcademicTransfer (job #363766). Imagery rescripting to reduce avoidance in panic disorder. Excellent clinical fit.",
       "tags": ["Netherlands", "imagery-rescripting", "panic", "clinical", "CBT"]
     },
     {
@@ -161,8 +161,8 @@
       "status": "open",
       "funding": "Funded",
       "source": "auto",
-      "url": "https://www.ulb.be",
-      "notes": "Three positions on adolescent MH and digital media. Partial fit.",
+      "url": "https://academicpositions.com/ad/universite-libre-de-bruxelles/2026/3-phd-positions-in-digital-media-use-gender-narratives-and-adolescents-development-and-mental-health-phd-positions-100-3-available-department-of-information-and-communication-sciences-resic/252605",
+      "notes": "✅ VERIFIED OPEN – Oct 12 deadline confirmed on AcademicPositions (#252605). 3 fully funded 4-yr fellowships (ReSIC dept). Digital media shaping adolescent gender beliefs, body image, sexuality & mental health. Cross-country BE/IT/CZ. Partial fit.",
       "tags": ["Belgium", "adolescent", "digital-media", "mental-health"]
     },
     {
@@ -170,14 +170,14 @@
       "title": "PhD Moral Injury in Eating Disorders",
       "institution": "University of Exeter",
       "country": "UK",
-      "supervisor": "TBC",
+      "supervisor": "Prof LZ Zasiekina",
       "deadline": "2026-10-21",
       "relevance": 70,
       "status": "open",
-      "funding": "UKRI stipend",
+      "funding": "MRC/GW4 BioMed3 (UKRI)",
       "source": "auto",
-      "url": "https://www.exeter.ac.uk",
-      "notes": "Moral injury applied to eating disorder context. Good clinical fit.",
+      "url": "https://www.findaphd.com/phds/project/unraveling-moral-injury-in-eating-disorders-in-young-adults/?p198358",
+      "notes": "✅ VERIFIED OPEN – Oct 21 deadline confirmed on FindAPhD (p198358). GW4 BioMed3 Doctoral Landscape Programme, MRC-funded, start Oct 2027. Open to students worldwide. Moral injury applied to eating disorder context. Good clinical fit.",
       "tags": ["UK", "eating-disorders", "moral-injury", "clinical"]
     },
     {
